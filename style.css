@@ -32,7 +32,6 @@ aside {
 
 #choice1, #choice2, #choice3, #choice4 {
     margin:50px;
-    width: 70px;
-    height: 30px;
-
+    padding: 10px;
+    font-size: 25px;
 }
