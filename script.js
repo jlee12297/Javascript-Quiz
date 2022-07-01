@@ -58,10 +58,19 @@ questionIndex = 0
       localStorage.setItem("storedScores", JSON.stringify(storedScores));
   }
   
+  document.getElementById("choice1").hidden = true;
+  document.getElementById("choice2").hidden = true;
+  document.getElementById("choice3").hidden = true;
+  document.getElementById("choice4").hidden = true;
 
 // startGame
     // triggered by event listener on start game button
     startBtn.addEventListener("click", function() {
+
+        document.getElementById("choice1").hidden = false;
+        document.getElementById("choice2").hidden = false;
+        document.getElementById("choice3").hidden = false;
+        document.getElementById("choice4").hidden = false;
     
     // start timer
     timeLeft = 60;
@@ -70,8 +79,10 @@ questionIndex = 0
         timeLeftSpan.textContent=timeLeft
         if(timeLeft === 0){
             // if time runs out, lose
-            timeLeftSpan.textContent="GAME OVER"
+            timeLeftSpan.textContent="GAME OVER you have zero "
             clearInterval(timer);
+            window.alert("Ran out of time! Feel free to try again.")
+            document.location.reload(true);
         }
     },1000)
     loadQuestion(questionIndex);
@@ -121,6 +132,7 @@ questionIndex = 0
         
         saveScore();
         renderStoredScores();
+        document.location.reload(true);
     }
 
     firstChoice.addEventListener("click", function() {
